@@ -4,7 +4,8 @@ output "ssh_command" {
 }
 
 output "create_key" {
-  value = "echo -e \"${tls_private_key.hashicat.private_key_pem}\" > ./private_key.pem"
+  value     = "echo -e \"${tls_private_key.hashicat.private_key_pem}\" > ./private_key.pem"
+  sensitive = true
 }
 
 output "private_key" {
