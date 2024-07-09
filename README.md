@@ -46,13 +46,13 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Specifies the AWS instance type. | `string` | `"t2.micro"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Specifies the AWS region. | `string` | `"us-west-2a"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_catapp_ip"></a> [catapp\_ip](#output\_catapp\_ip) | n/a |
-| <a name="output_catapp_url"></a> [catapp\_url](#output\_catapp\_url) | Outputs file |
+| <a name="output_create_key"></a> [create\_key](#output\_create\_key) | n/a |
 | <a name="output_private_key"></a> [private\_key](#output\_private\_key) | n/a |
-| <a name="output_public_key"></a> [public\_key](#output\_public\_key) | n/a |
+| <a name="output_ssh_command"></a> [ssh\_command](#output\_ssh\_command) | Outputs file |
 <!-- END_TF_DOCS -->

@@ -1,15 +1,10 @@
 # Outputs file
-output "catapp_url" {
-  value = "http://${aws_eip.hashicat.public_dns}"
+output "ssh_command" {
+  value = "ssh -i ./private_key.pem ubuntu@${aws_eip.hashicat.public_dns}"
 }
 
-output "catapp_ip" {
-  value = "http://${aws_eip.hashicat.public_ip}"
-}
-
-output "public_key" {
-  value     = tls_private_key.hashicat.public_key_openssh
-  sensitive = true
+output "create_key" {
+  value = "echo -e \"${tls_private_key.hashicat.private_key_pem}\" > ./private_key.pem"
 }
 
 output "private_key" {
