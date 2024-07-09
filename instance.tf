@@ -61,6 +61,7 @@ resource "null_resource" "configure-cat-app" {
 
   provisioner "remote-exec" {
     inline = [
+      "ls /home/ubuntu/",
       "sudo apt -y update",
       "sleep 15",
       "sudo apt -y update",
@@ -68,7 +69,7 @@ resource "null_resource" "configure-cat-app" {
       "sudo systemctl start apache2",
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "chmod +x *.sh",
-      "PREFIX=${var.prefix} /home/ubuntu/deploy_app.sh",
+      "PREFIX=${var.prefix} ./deploy_app.sh",
     ]
 
     connection {
