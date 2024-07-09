@@ -24,7 +24,7 @@ resource "aws_instance" "hashicat" {
   vpc_security_group_ids      = [aws_security_group.hashicat.id]
 
   tags = {
-    Name = "${random_string.prefix.result}-hashicat-instance"
+    Name = "${random_string.preffix.result}-hashicat-instance"
   }
 }
 
@@ -69,7 +69,7 @@ resource "null_resource" "configure-cat-app" {
       "sudo systemctl start apache2",
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "chmod +x *.sh",
-      "PREFIX=${random_string.prefix.result} ./deploy_app.sh",
+      "PREFIX=${random_string.preffix.result} ./deploy_app.sh",
     ]
 
     connection {
@@ -86,7 +86,7 @@ resource "tls_private_key" "hashicat" {
 }
 
 locals {
-  private_key_filename = "${random_string.prefix.result}-ssh-key.pem"
+  private_key_filename = "${random_string.preffix.result}-ssh-key.pem"
 }
 
 resource "aws_key_pair" "hashicat" {
