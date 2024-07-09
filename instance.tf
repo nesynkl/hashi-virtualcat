@@ -80,16 +80,16 @@ resource "null_resource" "configure-cat-app" {
   }
 }
 
-# resource "tls_private_key" "hashicat" {
-#   algorithm = "ED25519"
-# }
+resource "tls_private_key" "hashicat" {
+  algorithm = "ED25519"
+}
 
 locals {
   private_key_filename = "${var.prefix}-ssh-key.pem"
 }
 
 resource "aws_key_pair" "hashicat" {
-  key_name = local.private_key_filename
-  #   public_key = tls_private_key.hashicat.public_key_openssh
-  public_key = var.public_key
+  key_name   = local.private_key_filename
+  public_key = tls_private_key.hashicat.public_key_openssh
+  # public_key = var.public_key
 }

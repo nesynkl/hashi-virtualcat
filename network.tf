@@ -3,7 +3,7 @@ resource "aws_vpc" "hashicat" {
   enable_dns_hostnames = true
 
   tags = {
-    name        = "${var.prefix}-vpc"
+    name        = "${random_string.preffix.result}-vpc"
     environment = "Production"
   }
 }
@@ -13,7 +13,7 @@ resource "aws_subnet" "hashicat" {
   cidr_block = var.subnet_prefix
 
   tags = {
-    name = "${var.prefix}-subnet"
+    name = "${random_string.preffix.result}-subnet"
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_internet_gateway" "hashicat" {
   vpc_id = aws_vpc.hashicat.id
 
   tags = {
-    Name = "${var.prefix}-internet-gateway"
+    Name = "${random_string.preffix.result}-internet-gateway"
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_route_table_association" "hashicat" {
 
 resource "aws_eip" "hashicat" {
   instance = aws_instance.hashicat.id
-  vpc      = true
+  domain = "vpc"
 }
 
 resource "aws_eip_association" "hashicat" {
