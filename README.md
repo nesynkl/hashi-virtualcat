@@ -14,7 +14,6 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 5.57.0 |
-| <a name="provider_null"></a> [null](#provider\_null) | 3.2.2 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.5 |
 
@@ -36,7 +35,6 @@ No modules.
 | [aws_security_group.hashicat](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/security_group) | resource |
 | [aws_subnet.hashicat](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/subnet) | resource |
 | [aws_vpc.hashicat](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/vpc) | resource |
-| [null_resource.configure-cat-app](https://registry.terraform.io/providers/hashicorp/null/3.2.2/docs/resources/resource) | resource |
 | [random_string.preffix](https://registry.terraform.io/providers/hashicorp/random/3.6.2/docs/resources/string) | resource |
 | [tls_private_key.hashicat](https://registry.terraform.io/providers/hashicorp/tls/4.0.5/docs/resources/private_key) | resource |
 | [aws_ami.ubuntu](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/ami) | data source |
@@ -46,13 +44,13 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Specifies the AWS instance type. | `string` | `"t2.micro"` | no |
-| <a name="input_region"></a> [region](#input\_region) | Specifies the AWS region. | `string` | `"us-west-2a"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Specifies the AWS region. | `string` | `"us-east-2"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_create_key"></a> [create\_key](#output\_create\_key) | n/a |
-| <a name="output_private_key"></a> [private\_key](#output\_private\_key) | n/a |
-| <a name="output_ssh_command"></a> [ssh\_command](#output\_ssh\_command) | Outputs file |
+| <a name="output_first_create_key"></a> [first\_create\_key](#output\_first\_create\_key) | First, create a private key file from the generated private key, you need to remove the backslash before the first double quote and the last double quote |
+| <a name="output_second_permissions"></a> [second\_permissions](#output\_second\_permissions) | Second, set the correct permissions on the private key file |
+| <a name="output_third_ssh_command"></a> [third\_ssh\_command](#output\_third\_ssh\_command) | Third, use the following command to SSH into the instance. |
 <!-- END_TF_DOCS -->

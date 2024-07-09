@@ -41,7 +41,7 @@ resource "aws_route_table_association" "hashicat" {
 
 resource "aws_eip" "hashicat" {
   instance = aws_instance.hashicat.id
-  domain = "vpc"
+  domain   = "vpc"
 }
 
 resource "aws_eip_association" "hashicat" {
