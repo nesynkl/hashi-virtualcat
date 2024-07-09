@@ -1,5 +1,5 @@
 resource "aws_security_group" "hashicat" {
-  name = "${var.prefix}-security-group"
+  name = "${random_string.prefix.result}-security-group"
 
   vpc_id = aws_vpc.hashicat.id
 
@@ -33,6 +33,6 @@ resource "aws_security_group" "hashicat" {
   }
 
   tags = {
-    Name = "${var.prefix}-security-group"
+    Name = "${random_string.prefix.result}-security-group"
   }
 }

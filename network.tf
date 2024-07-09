@@ -1,5 +1,5 @@
 resource "aws_vpc" "hashicat" {
-  cidr_block           = var.address_space
+  cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
 
   tags = {
@@ -10,7 +10,7 @@ resource "aws_vpc" "hashicat" {
 
 resource "aws_subnet" "hashicat" {
   vpc_id     = aws_vpc.hashicat.id
-  cidr_block = var.subnet_prefix
+  cidr_block = "10.0.10.0/24"
 
   tags = {
     name = "${random_string.preffix.result}-subnet"
