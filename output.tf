@@ -1,6 +1,6 @@
 # Outputs file
 output "first_create_key" {
-  value     = "echo -e \"${tls_private_key.hashicat.private_key_pem}\" > ./private_key.pem"
+  value     = "printf \"${tls_private_key.hashicat.private_key_pem}\" > ./private_key.pem"
   sensitive = true
 }
 
