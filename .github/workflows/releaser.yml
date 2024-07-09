@@ -1,0 +1,30 @@
+name: Releaser
+
+on:
+  push:
+    branches:
+      - master
+
+permissions: 
+  contents: write
+  actions: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: "Publish"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5.0.1
+        with:
+          go-version: "1.22.4"
+
+      - name: Semantic Release
+        uses: go-semantic-release/action@v1
+        with:
+          hooks: goreleaser
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
