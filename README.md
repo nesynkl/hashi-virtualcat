@@ -14,6 +14,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 5.57.0 |
+| <a name="provider_hcp"></a> [hcp](#provider\_hcp) | n/a |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.5 |
 
@@ -37,14 +38,16 @@ No modules.
 | [aws_vpc.hashicat](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/vpc) | resource |
 | [random_string.preffix](https://registry.terraform.io/providers/hashicorp/random/3.6.2/docs/resources/string) | resource |
 | [tls_private_key.hashicat](https://registry.terraform.io/providers/hashicorp/tls/4.0.5/docs/resources/private_key) | resource |
-| [aws_ami.ubuntu](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/ami) | data source |
+| [hcp_packer_artifact.linux-images](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/data-sources/packer_artifact) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Specifies the AWS instance type. | `string` | `"t2.micro"` | no |
-| <a name="input_region"></a> [region](#input\_region) | Specifies the AWS region. | `string` | `"us-east-2"` | no |
+| <a name="input_packer_bucket_name"></a> [packer\_bucket\_name](#input\_packer\_bucket\_name) | Specifies the Packer bucket name. | `string` | `"linux-images"` | no |
+| <a name="input_packer_channel_name"></a> [packer\_channel\_name](#input\_packer\_channel\_name) | Specifies the Packer channel name. | `string` | `"latest"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Specifies the AWS region. | `string` | `"us-west-2"` | no |
 
 ## Outputs
 

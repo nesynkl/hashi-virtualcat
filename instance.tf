@@ -1,22 +1,12 @@
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name = "name"
-    #values = ["ubuntu/images/hvm-ssd/ubuntu-disco-19.04-amd64-server-*"]
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
+data "hcp_packer_artifact" "linux-images" {
+  bucket_name   = var.packer_bucket_name
+  channel_name  = var.packer_channel_name
+  platform      = "aws"
+  region        = var.region
 }
 
 resource "aws_instance" "hashicat" {
-  ami                         = data.aws_ami.ubuntu.id
+  ami                         = data.hcp_packer_artifact.linux-images.external_identifier
   instance_type               = var.instance_type
   key_name                    = aws_key_pair.hashicat.key_name
   associate_public_ip_address = true
