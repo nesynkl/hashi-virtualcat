@@ -9,3 +9,15 @@ variable "region" {
   type        = string
   default     = "us-west-2"
 }
+
+variable "packer_bucket_name" {
+  description = "Specifies the Packer bucket name."
+  type        = string
+  default     = "linux-images"
+}
+
+variable "packer_channel_name" {
+  description = "Specifies the Packer channel name."
+  type        = string
+  default     = "latest"
+}

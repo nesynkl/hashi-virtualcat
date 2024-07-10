@@ -1,8 +1,8 @@
 data "hcp_packer_artifact" "linux-images" {
-  bucket_name   = "linux-images"
-  channel_name  = "latest"
+  bucket_name   = var.packer_bucket_name
+  channel_name  = var.packer_channel_name
   platform      = "aws"
-  region        = "us-west-2"
+  region        = var.region
 }
 
 resource "aws_instance" "hashicat" {
